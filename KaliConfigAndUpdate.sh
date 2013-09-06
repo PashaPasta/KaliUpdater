@@ -46,5 +46,5 @@
     echo Hope you have a something to kill time for a while...
     apt-get update  && apt-get -y upgrade && apt-get -y dist-upgrade
     fi
-    echo This completes the script, goodluck and  don't get in too much trouble...
+    print "This completes the script, goodluck and  don't get in too much trouble..."
 
