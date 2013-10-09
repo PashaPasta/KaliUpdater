@@ -21,7 +21,7 @@
     echo ...Now starting setup diagnostics, results will be saved to /Desktop/openvas-info.txt
     sleep 10
     echo ...May this stage may appear to be doing nothing, be patient...
-    openvas-setup --check-install > /home/root/Desktop/openvas-info.txt
+    openvas-setup --check-install > /root/Desktop/openvas-info.txt
     echo ...Updating OpenVAS Definitions
     openvas-nvt-sync
     openvas-feed-update
@@ -46,5 +46,6 @@
     echo Hope you have a something to kill time for a while...
     apt-get update  && apt-get -y upgrade && apt-get -y dist-upgrade
     fi
+    sleep 2
     print "This completes the script, goodluck and  don't get in too much trouble..."
 
