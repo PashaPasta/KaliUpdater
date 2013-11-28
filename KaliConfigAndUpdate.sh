@@ -5,15 +5,15 @@
     # Kali set up and configured for basic uses.  Contact thejesterrace87@gmail.com with bug info.
     
  
-    read -p "Do you want to add the Bleeding Edge repo to your sources? [y/n]" answer4
+    read -p "Do you want to add the Bleeding Edge repo to your sources? [y/n]" answerRepo
     
-    if [[ $answer4 = y  ]] ; then
+    if [[ $answerRepo = y  ]] ; then
     	echo deb http://repo.kali.org/kali kali-bleeding-edge main >> /etc/apt/sources.list
     fi
     
-    read -p "Do you want to update Kali Linux now? WARNING This may take up to an hour to complete... [y/n]" answer5
+    read -p "Do you want to update Kali Linux now? WARNING This may take up to an hour to complete... [y/n]" answerUpdate
     
-    if [[ $answer5 = y ]] ; then
+    if [[ $answerUpdate = y ]] ; then
     	
 	print "Hope you have a something to kill time for a while..."
     		apt-get update  && apt-get -y upgrade && apt-get -y dist-upgrade
