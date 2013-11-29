@@ -31,12 +31,19 @@ read -p "Do you want to update Nikto's definitions? [y/n] " answerNikto
 
 if [[ $1 = -a ]] ; then
 	
-	answerRepo=y
-	answerUpdate=y
-	answerOpenVAS=y
-	answerTOR=y
-	answerNikto=y
-
+	read -p "Are you sure you want to install all packages and configure everything by default? [y/n] " answerWarning
+	if [[ $answerWarning = y ]] ; then
+		answerRepo=y
+		answerUpdate=y
+		answerOpenVAS=y
+		answerTOR=y
+		answerNikto=y
+	else 
+		printf "Verify would you do an do not want done...."
+		sleep 2
+		questions
+	fi
+	
 elif [[ $1 = -h ]] ; then
 
 	cat README.md
@@ -61,7 +68,6 @@ if [[ $answerUpdate = y ]] ; then
         
 	printf "Updating Kali Linux, this stage may take about an hour to complete...
 	"
-        sleep 3
 	apt-get update -qq && apt-get -y upgrade -qq && apt-get -y dist-upgrade -qq
 fi
 
