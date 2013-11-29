@@ -15,15 +15,34 @@ printf "
 	#          answer [y/n] according to your needs.             #
 	##############################################################\n\n"
 
+# Functionality for flags
 
 # Ask Initial questions
-
+function questions() {
 read -p "Do you want to add the Bleeding Edge repo for more regular updates? [y/n] " answerRepo
 read -p "Do you want to install updates to Kali Linux now? [y/n] " answerUpdate
 read -p "Do you want the metasploit and postgresql services to start on boot? (Recommended) [y/n] "
 read -p "Do you want to setup OpenVAS? (Note: You will be prompted to enter a password for the OpenVAS admin user, this process may take up to an hour) [y/n] " answerOpenVAS
 read -p "Do you want to install and setup TOR with Privoxy? [y/n] " answerTOR
 read -p "Do you want to update Nikto's definitions? [y/n] " answerNikto
+}
+
+# If script run with -a flag, all options will automatically default to yes
+
+if [[ $1 = -a ]] ; then
+	
+	answerRepo=y
+	answerUpdate=y
+	answerOpenVAS=y
+	answerTOR=y
+	answerNikto=y
+else 
+
+	questions
+
+fi
+
+
 
 # Logic for update and configuration steps
 
