@@ -36,16 +36,14 @@ if [[ $1 = -a ]] ; then
 	answerOpenVAS=y
 	answerTOR=y
 	answerNikto=y
+
+elif [[ $1 = -h ]] ; then
+
+	cat README.md
 else 
 
 	questions
 
-fi
-
-if [[ $1 = -h ]] ; then
-
-	cat README.md
-	
 fi
 
 
@@ -131,5 +129,5 @@ function pause () {
 }
     
 pause '
-	Press [Enter] key to finish script...
+	Press [Enter] key to exit...
 	'
