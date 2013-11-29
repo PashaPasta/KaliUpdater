@@ -106,4 +106,5 @@ function pause () {
 }
     
 pause '
-	Press [Enter] key to finish script...'
+	Press [Enter] key to finish script...
+	'
