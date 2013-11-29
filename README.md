@@ -1,4 +1,7 @@
-Kali-Config-and-Updater-for-Noobs
-=================================
+Kali-Config-and-Updater
+=======================
 
-Script for configuring and updating Kali Linux from scratch
+After downloading git repo, 'cd /path/to/Kali-Config-and-Updater' and 'chmod +x KaliConfigAndUpdate.sh'
+
+
+Enjoy...
