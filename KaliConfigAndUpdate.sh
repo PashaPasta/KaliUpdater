@@ -42,6 +42,12 @@ else
 
 fi
 
+if [[ $1 = -h ]] ; then
+
+	cat README.md
+	
+fi
+
 
 
 # Logic for update and configuration steps
