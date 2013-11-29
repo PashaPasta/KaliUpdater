@@ -36,9 +36,10 @@ fi
 
 if [[ $answerUpdate = y ]] ; then
         
-	printf "Updating Kali Linux, this stage may take about an hour to complete...\n"
+	printf "Updating Kali Linux, this stage may take about an hour to complete...
+	"
         sleep 3
-	apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade
+	apt-get update -qq && apt-get -y upgrade -qq && apt-get -y dist-upgrade -qq
 fi
 
 if [[ $answerServices = y ]] ; then        
@@ -63,7 +64,7 @@ fi
 
 if [[ $answerTOR = y ]] ; then
 
-            apt-get -y install tor privoxy vidalia polipo
+            apt-get -y -qq install tor privoxy vidalia polipo
 
             echo forward-socks4a / 127.0.0.1:9050 >> /etc/privoxy/config
             echo listen-address 127.0.0.1:8118 >> /etc/privoxy/config
@@ -80,7 +81,8 @@ function filecheck () {
 	file="/root/Desktop/openvas-info.txt"
 
 	if [ -f "$file" ] ; then
-		printf "Check /root/Desktop/openvas-info.txt for errors and recommendations"
+		printf "Check /root/Desktop/openvas-info.txt for errors and recommendations
+		"
 	fi
 }	
 if [[ $answerOpenVAS = y ]] ; then
@@ -88,12 +90,14 @@ if [[ $answerOpenVAS = y ]] ; then
 file="/root/Desktop/openvas-info.txt"
 
 	filecheck
-	printf "Note: OpenVAS user name is [admin] "
+	printf "Note: OpenVAS user name is [admin] 
+	"
 	sleep 3
 fi
 
 if [[ $answerTOR = y ]] ; then
-	printf "TOR has been configured with Privoxy, set your browser to use a socks4 proxy on localhost:8118"
+	printf "TOR has been configured with Privoxy, set your browser to use a socks4 proxy on localhost:8118
+	"
 	sleep 3
 fi
 
@@ -101,4 +105,5 @@ function pause () {
         read -p "$*"
 }
     
-pause 'Press [Enter] key to finish script...'
+pause '
+	Press [Enter] key to finish script...'
