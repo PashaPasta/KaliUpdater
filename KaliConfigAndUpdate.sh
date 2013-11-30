@@ -15,9 +15,9 @@ printf "
 	#          answer [y/n] according to your needs.             #
 	##############################################################\n\n"
 
-# Functionality for flags
 
-# Ask Initial questions
+
+# Questions function
 function questions() {
 read -p "Do you want to add the Bleeding Edge repo for more regular updates? [y/n] " answerRepo
 read -p "Do you want to install updates to Kali Linux now? [y/n] " answerUpdate
@@ -27,7 +27,9 @@ read -p "Do you want to install and setup TOR with Privoxy? [y/n] " answerTOR
 read -p "Do you want to update Nikto's definitions? [y/n] " answerNikto
 }
 
+#Flags!!!! 
 # If script run with -a flag, all options will automatically default to yes
+# IF script run with -h flag, README.md will be displayed
 
 if [[ $1 = -a ]] ; then
 	
@@ -47,6 +49,7 @@ if [[ $1 = -a ]] ; then
 elif [[ $1 = -h ]] ; then
 
 	cat README.md
+	exit
 else 
 
 	questions
@@ -66,7 +69,7 @@ fi
 
 if [[ $answerUpdate = y ]] ; then
         
-	printf "Updating Kali Linux, this stage may take about an hour to complete...
+	printf "Updating Kali Linux, this stage may take about an hour to complete...Hope you have some time to burn...
 	"
 	apt-get update -qq && apt-get -y upgrade -qq && apt-get -y dist-upgrade -qq
 fi
