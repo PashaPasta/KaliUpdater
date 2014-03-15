@@ -89,7 +89,7 @@ if [[ $answerOpenVAS = y ]] ; then
     
                 apt-get -y install nsis rpm
                 openvas-setup
-        	openvas-setup --check-install > /root/Desktop/openvas-info.txt
+        	openvas-setup --check-install > /var/log/KaliUpdater.log
      		openvas-nvt-sync
                 openvas-feed-update
                  
@@ -111,16 +111,16 @@ fi
 # If OpenVAS was installed, check for error file, if present, print alert
 
 function filecheck () {
-	file="/root/Desktop/openvas-info.txt"
+	file="/var/log/KaliUpdater.log"
 
 	if [ -f "$file" ] ; then
-		printf "Check /root/Desktop/openvas-info.txt for errors and recommendations
+		printf "Check /var/log/KaliUpdater.log for errors and recommendations
 		"
 	fi
 }	
 if [[ $answerOpenVAS = y ]] ; then
 
-file="/root/Desktop/openvas-info.txt"
+file="/var/log/KaliUpdater.log"
 
 	filecheck
 	printf "Note: OpenVAS user name is [admin] 
