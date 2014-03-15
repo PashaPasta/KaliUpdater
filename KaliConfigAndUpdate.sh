@@ -87,6 +87,7 @@ if [[ $answerOpenVAS = y ]] ; then
 
         echo ...Starting OpenVAS setup...Please be ready to enter desired OpenVAS admin password
     
+                apt-get -y install nsis rpm
                 openvas-setup
         	openvas-setup --check-install > /root/Desktop/openvas-info.txt
      		openvas-nvt-sync
