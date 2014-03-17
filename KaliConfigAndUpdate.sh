@@ -25,6 +25,7 @@ read -p "Do you want the metasploit and postgresql services to start on boot? (R
 read -p "Do you want to setup OpenVAS? (Note: You will be prompted to enter a password for the OpenVAS admin user, this process may take up to an hour) [y/n] " answerOpenVAS
 read -p "Do you want to install and setup TOR with Privoxy? [y/n] " answerTOR
 read -p "Do you want to update Nikto's definitions? [y/n] " answerNikto
+read -p "Do you want to download additional useful scripts for pentesting purposes? [y/n]" answerScripts
 }
 
 #Flags!!!! 
@@ -132,6 +133,14 @@ if [[ $answerTOR = y ]] ; then
 	printf "TOR has been configured with Privoxy, set your browser to use a socks4 proxy on localhost:8118
 	"
 	sleep 3
+fi
+
+if [[ $answerScripts = y ]] ; then
+	mkdir /root/scripts
+	cd /root/scripts
+	git clone https://bitbucket.org/al14s/rawr.git
+	#Add other tools here
+	printf "Downloading scripts...."
 fi
 
 function pause () {
