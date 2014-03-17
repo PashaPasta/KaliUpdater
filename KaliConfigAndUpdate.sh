@@ -136,11 +136,14 @@ if [[ $answerTOR = y ]] ; then
 fi
 
 if [[ $answerScripts = y ]] ; then
+	printf "Downloading scripts...."
 	mkdir /root/scripts
 	cd /root/scripts
 	git clone https://bitbucket.org/al14s/rawr.git
+	cd rawr
+	python rawr.py --check-install
 	#Add other tools here
-	printf "Downloading scripts...."
+	
 fi
 
 function pause () {
