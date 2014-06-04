@@ -141,6 +141,7 @@ if [[ $answerScripts = y ]] ; then
 	cd /root/scripts
 	git clone https://bitbucket.org/al14s/rawr.git
 	cd rawr
+	apt-get install python-pygraphviz
 	python rawr.py --check-install
 	#Add other tools here
 	
