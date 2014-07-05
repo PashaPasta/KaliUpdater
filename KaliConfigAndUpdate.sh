@@ -116,7 +116,9 @@ if [[ $answerTOR = y ]] ; then
 
             apt-get -y -qq install tor privoxy vidalia polipo
 
-            echo forward-socks4a / 127.0.0.1:9050 >> /etc/privoxy/config
+            echo forward-socks4a / 127.0.0.1:9050 . >> /etc/privoxy/config
+            echo forward-socks4  / 127.0.0.1:9050 . >> /etc/privoxy/config
+            echo forward-socks5  / 127.0.0.1:9050 . >> /etc/privoxy/config
             echo listen-address 127.0.0.1:8118 >> /etc/privoxy/config
 fi
 
