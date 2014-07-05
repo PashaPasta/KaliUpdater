@@ -10,9 +10,9 @@
 
 printf "
 
-			#############################
-			# KaliUpdater and Config v2 #
-			#############################
+			###############################
+			# KaliUpdater and Config v3.0 #
+			###############################
 
 	##############################################################
 	# Welcome, you will be presented with a few questions, please#
