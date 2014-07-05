@@ -79,15 +79,15 @@ if [[ $answerUpdate = y ]] ; then
 	"
 	apt-get update -qq && apt-get -y upgrade -qq && apt-get -y dist-upgrade -qq
   apt-get install unrar unace rar p7zip zip unzip p7zip-full p7zip-rar file-roller -y
-  apt-get install flashplugin-nonfree
+  apt-get install flashplugin-nonfree -y 
   update-flashplugin-nonfree --install
-  apt-get install htop nethogs
+  apt-get install htop nethogs gnome-tweak-tool -y 
 fi
 
 # Add VPN Installation step here
 if [[ $answerVPN = y ]] ; then
 
-  apt-get install network-manager-openvpn network-manager-openvpn-gnome network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome
+  apt-get -y install network-manager-openvpn network-manager-openvpn-gnome network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome
 
 fi
 
