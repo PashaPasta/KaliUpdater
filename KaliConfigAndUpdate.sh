@@ -7,7 +7,7 @@
 
 # Changelog:
 # 7/2/2014: Added VPN installation option, Added additional tool installations, Added gnome-tweak-tool
-
+# 7/18/2014: Fixed rawr.py install, rawr devs changed from --check-install to -U
 printf "
 
 			###############################
@@ -160,7 +160,7 @@ if [[ $answerScripts = y ]] ; then
 	git clone https://bitbucket.org/al14s/rawr.git
 	cd rawr
 	apt-get install python-pygraphviz
-	python rawr.py --check-install
+	python rawr.py -U
 	#Add other tools here
 
 fi
