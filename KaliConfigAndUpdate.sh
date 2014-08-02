@@ -53,7 +53,7 @@ answerNikto=y
 answerScripts=y
 answerSVN=y
 else
-printf "Verify would you do an do not want done...."
+printf "Verify would you do and do not want done...."
 sleep 2
 questions
 fi
