@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Kali Configuration and Updater version 3.0
+# Kali Configuration and Updater version 4.0
 # This script is intended for use in new Kali Linux Installations
 # Please contact thejesterrace87@gmail.com with bugs or feature requests
 
@@ -9,6 +9,7 @@
 # 7/2/2014: Added VPN installation option, Added additional tool installations, Added gnome-tweak-tool
 # 7/18/2014: Fixed rawr.py install, rawr devs changed from --check-install to -U
 # 7/27/2014: Added git and svn protocol updaters for existing git clones and svn checkouts; fixed a few formatting issues 
+# 9/21/2015: Updated for Kali 2.0 compatibility.  Commented out OpenVAS option, Kali2's setup is better than before.
 printf "
 
 ###############################
@@ -27,8 +28,8 @@ function questions() {
 read -p "Do you want to add the Bleeding Edge repo for more regular updates? [y/n] " answerRepo
 read -p "Do you want to install updates to Kali Linux now? [y/n] " answerUpdate
 read -p "Do you want to install packages required for VPN functionality? [y/n] " answerVPN
-read -p "Do you want the metasploit and postgresql services to start on boot? (Recommended) [y/n] " answerServices
-read -p "Do you want to setup OpenVAS? (Note: You will be prompted to enter a password for the OpenVAS admin user, this process may take up to an hour) [y/n] " answerOpenVAS
+read -p "Do you want to start metasploit and postgresql services? [y/n] " answerServices
+#read -p "Do you want to setup OpenVAS? (Note: You will be prompted to enter a password for the OpenVAS admin user, this process may take up to an hour) [y/n] " answerOpenVAS
 read -p "Do you want to install and setup TOR with Privoxy? [y/n] " answerTOR
 read -p "Do you want to update Nikto's definitions? [y/n] " answerNikto
 read -p "Do you want to download additional tools and scripts for pentesting purposes? [y/n]" answerScripts
@@ -100,10 +101,11 @@ fi
 if [[ $answerServices = y ]] ; then
 
   service postgresql start
-  service metasploit start
+  msfdb init
+  #service metasploit start
 
-  update-rc.d postgresql enable
-  update-rc.d metasploit enable
+ # update-rc.d postgresql enable
+  #update-rc.d metasploit enable
 fi
 
 if [[ $answerOpenVAS = y ]] ; then
