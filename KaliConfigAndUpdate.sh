@@ -34,6 +34,7 @@ read -p "Do you want to install and setup TOR with Privoxy? [y/n] " answerTOR
 read -p "Do you want to update Nikto's definitions? [y/n] " answerNikto
 read -p "Do you want to download additional tools and scripts for pentesting purposes? [y/n]" answerScripts
 read -p "Do you want to find and install updates to all svn and git tools previously installed? [y/n]" answerSVN
+read -p "Do you want to install open-vm-tools? (Recommended for VMs)This is needed for vmtools functionality as vmware tools no longer work. [y/n]" answerTools
 }
 
 #Flags!!!!
@@ -53,6 +54,7 @@ answerTOR=y
 answerNikto=y
 answerScripts=y
 answerSVN=y
+answerTools=y
 else
 printf "Verify would you do and do not want done...."
 sleep 2
@@ -190,6 +192,11 @@ if [[ $answerSVN = y ]] ; then
   rm /tmp/svnsfound*
   # Finish svn updater
 
+fi
+
+if [[ $answerTools = y ]] ; then
+
+        apt-get install open-vm-tools
 fi
 
 function pause () {
